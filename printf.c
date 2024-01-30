@@ -21,8 +21,9 @@ int _printf(const char *format, ...)
 			{
 				c = va_arg(arg_list, int);
 				putchar(c);
+				len++;
 			}
-			if (format[i] == 's')
+			else if (format[i] == 's')
 			{
 				str = va_arg(arg_list, char *);
 				for (j = 0; str[j] != '\0'; j++)
@@ -31,8 +32,18 @@ int _printf(const char *format, ...)
 					len++;
 				}
 			}
-			if (format[i] == '%')
+			else if (format[i] == '%')
+			{
 				putchar('%');
+				len++;
+			}
+			else
+			{
+				putchar('%');
+				len++;
+				putchar(format[i]);
+				len++;
+			}
 
 		}
 
