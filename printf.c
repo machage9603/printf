@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list arg_list;
 
 	va_start(arg_list, format);
-	if (format == NULL || strlen(format) == 1)
+	if (strlen(format) == 1)
 		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 			else if (format[i] == 's')
 			{
 				str = va_arg(arg_list, char *);
+				if (str == NULL)
+					str = "(null)";
 				for (j = 0; str[j] != '\0'; j++)
 				{
 					putchar(str[j]);
