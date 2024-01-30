@@ -6,40 +6,42 @@
  */
 int _printf(const char *format, ...)
 {
-int len = 0;
-va_list arg_list;
-va_start(arg_list, format);
-	for (int i = 0; format[i] != '\0'; i++)
-	{
-	if (format[i] == '%')
-	{
-	i++;
-	if (format[i] == 'c')
-	{
-	i++;
-	if (format[i] == 's')
-	{
-	char *str
-		str = va_arg(arg_list, char *);
-	int j;
+	int j, i, len = 0;
+	char *str;
+	char c;
+	va_list arg_list;
 
-	for (j = 0; str[j] != '\0'; j++)
-
+	va_start(arg_list, format);
+	for (i = 0; format[i] != '\0'; i++)
 	{
-	putchar(str[j])
-	len++;
-	}
-	}
-	}
-	}
-	else
-	{
-	putchar (format[i]);
-	len++;
-	}
-	}
-va_end(arg_list);
+		if (format[i] == '%')
+		{
+			i++;
+			if (format[i] == 'c')
+			{
+				c = va_arg(arg_list, int);
+				putchar(c);
+			}
+			if (format[i] == 's')
+			{
+				str = va_arg(arg_list, char *);
+				for (j = 0; str[j] != '\0'; j++)
+				{
+					putchar(str[j]);
+					len++;
+				}
+			}
+			if (format[i] == '%')
+				putchar('%');
 
+		}
+
+		else
+		{
+			putchar (format[i]);
+			len++;
+		}
+	}
+	va_end(arg_list);
 	return (len);
 }
-
