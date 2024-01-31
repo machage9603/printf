@@ -4,6 +4,7 @@
  * @format: a string that contains characters
  * Return: Returns the number of characters printed
  */
+int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int j, i, len = 0, p;
@@ -64,8 +65,6 @@ int _printf(const char *format, ...)
 				}
 				free(str);
 			}
-
-
 			else
 			{
 				_putchar('%');
@@ -75,7 +74,6 @@ int _printf(const char *format, ...)
 			}
 
 		}
-
 		else
 		{
 			_putchar (format[i]);
