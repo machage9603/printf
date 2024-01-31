@@ -11,8 +11,8 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
-	len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	len = _printf("%d - %d = %d\n", 1024, 2048, -1024);
+	len2 = printf("%d - %d = %d\n", 1024, 2048, -1024);
 	fflush(stdout);
 	if (len != len2)
 	{

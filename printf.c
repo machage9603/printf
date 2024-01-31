@@ -7,7 +7,7 @@
 int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
-	int j, i, len = 0;
+	int j, i, len = 0, p;
 	char *str;
 	char c;
 	va_list arg_list;
@@ -42,6 +42,17 @@ int _printf(const char *format, ...)
 				putchar('%');
 				len++;
 			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				p = va_arg(arg_list, int);
+				str = Itoa(p);
+				for (j = 0; str[j] != '\0'; j++)
+				{
+					putchar(str[j]);
+					len++;
+				}
+			}
+			
 			else
 			{
 				putchar('%');
