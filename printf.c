@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 					len++;
 				}
 			}
-			
+
 			else
 			{
 				putchar('%');
