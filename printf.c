@@ -51,6 +51,7 @@ int _printf(const char *format, ...)
 					putchar(str[j]);
 					len++;
 				}
+				free(str);
 			}
 
 			else
