@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				c = va_arg(arg_list, int);
-				_putchar(c);
+				putchar(c);
 				len++;
 			}
 			else if (format[i] == 's')
@@ -33,13 +33,13 @@ int _printf(const char *format, ...)
 					str = "(null)";
 				for (j = 0; str[j] != '\0'; j++)
 				{
-					_putchar(str[j]);
+					putchar(str[j]);
 					len++;
 				}
 			}
 			else if (format[i] == '%')
 			{
-				_putchar('%');
+				putchar('%');
 				len++;
 			}
 			else if (format[i] == 'd' || format[i] == 'i')
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 				str = Itoa(p);
 				for (j = 0; str[j] != '\0'; j++)
 				{
-					_putchar(str[j]);
+					putchar(str[j]);
 					len++;
 				}
 				free(str);
@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 				str = bin_convert(bin);
 				for (j = 0; str[j] != '\0'; j++)
 				{
-					_putchar(str[j]);
+					putchar(str[j]);
 					len++;
 				}
 				free(str);
@@ -68,9 +68,9 @@ int _printf(const char *format, ...)
 
 			else
 			{
-				_putchar('%');
+				putchar('%');
 				len++;
-				_putchar(format[i]);
+				putchar(format[i]);
 				len++;
 			}
 
@@ -78,7 +78,7 @@ int _printf(const char *format, ...)
 
 		else
 		{
-			_putchar (format[i]);
+			putchar (format[i]);
 			len++;
 		}
 	}
