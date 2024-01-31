@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 	int j, i, len = 0, p;
 	char *str;
 	char c;
+	unsigned int bin;
 	va_list arg_list;
 
 	va_start(arg_list, format);
@@ -53,6 +54,18 @@ int _printf(const char *format, ...)
 				}
 				free(str);
 			}
+			else if (format[i] == 'b')
+			{
+				bin = va_arg(arg_list, unsigned int);
+				str = bin_convert(bin);
+				for (j = 0; str[j] != '\0'; j++)
+				{
+					putchar(str[j]);
+					len++;
+				}
+				free(str);
+			}
+
 
 			else
 			{
