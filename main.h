@@ -9,5 +9,6 @@
 
 int _printf(const char *format, ...);
 char *Itoa(int n);
+int _putchar(char c);
 #endif
 
